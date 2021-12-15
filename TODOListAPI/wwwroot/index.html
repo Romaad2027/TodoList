@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODOListAPI</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/site.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand">TODOListPI</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container main">
+        <h2>Sign in</h2>
+
+        <a href="/register.html">Registration</a>
+
+        <form name="userForm">
+            <div class="validation"></div>
+            <div>
+                <div class="form-group">
+                    <label>Type your name</label>
+                    <input type="text" name="name" />
+                    <span></span>
+                </div>
+                <div class="form-group">
+                    <label>Type the password</label>
+                    <input name="password" />
+                    <span></span>
+                </div>
+                <div class="form-group" id="ada">
+                    <input type="submit" value="Sign in" class="btn btn-outline-dark" />
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - TODOListEF - <a>Privacy</a>
+        </div>
+    </footer>
+    <script src="/js/login.js"></script>
+</body>
+</html>
