@@ -15,6 +15,25 @@ async function LoginUser(userName, userPassword) {
         sessionStorage.setItem(tokenKey, user.access_token);
         window.location.href = '../task.html';
     }
+    else {
+        const error = await response.json();
+        let errOutput = document.getElementById('errorOutput');
+
+        errOutput.innerHTML = '';
+        if (error.errorText) {
+            errOutput.innerHTML = error['errorText'];
+        }
+        else if (error.errors) {
+            if (error.errors["Username"]) {
+                errOutput.innerHTML += error.errors["Username"] + '</br>';
+            }
+            if (error.errors["Password"]) {
+                errOutput.innerHTML += error.errors["Password"] + '</br>';
+            }
+        }
+
+        document.getElementById("errorOutput").style.display = "block";
+    }
 }
 
 document.forms["userForm"].addEventListener("submit", e => {

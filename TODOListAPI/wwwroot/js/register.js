@@ -18,9 +18,24 @@ async function RegisterUser(userName, userPassword, confirmPassword) {
     }
     else {
         const error = await response.json();
-        console.log(error.errors.Username[0]);
-        let a = document.getElementById("main-title");
-        a.innerHTML = error.errors.Username[0];
+        let errOutput = document.getElementById('errorOutput');
+
+        errOutput.innerHTML = '';
+        if (error.errorText) {
+            errOutput.innerHTML = error['errorText'];
+        }
+        else if (error.errors) {
+            if (error.errors["Username"]) {
+                errOutput.innerHTML += error.errors["Username"] + '</br>';
+            }
+            if (error.errors["Password"]) {
+                errOutput.innerHTML += error.errors["Password"] + '</br>';
+            }
+            if (error.errors["ConfirmPassword"]) {
+                errOutput.innerHTML += error.errors["ConfirmPassword"] + '</br>';
+            }
+        }
+        document.getElementById("errorOutput").style.display = "block";
     }
 }
 
@@ -33,4 +48,3 @@ document.forms["userForm"].addEventListener("submit", e => {
     const confirmPassword = form.elements["confirmPassword"].value;
     RegisterUser(name, password, confirmPassword);
 });
-
